@@ -18,7 +18,6 @@ import androidx.compose.ui.unit.sp
 import com.mmb.clock.R
 import com.mmb.clock.entity.PomodoroScreenEntity
 import com.mmb.clock.viewmodel.PomodoroClockViewModel
-import com.mmb.ui_compose.Layout
 import com.mmb.ui_compose.component.pom.ControlButton
 import com.mmb.ui_compose.component.pom.PomodoroClock
 
@@ -70,7 +69,7 @@ fun PomScreen(
     modifier: Modifier = Modifier,
 ) {
     Column(
-        modifier = modifier.wrapContentSize(),
+        modifier = modifier.fillMaxWidth(),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
@@ -83,7 +82,7 @@ fun PomScreen(
             )
             Text(
                 text = entity.sessionName,
-                modifier = Modifier.padding(vertical = 32.dp),
+                modifier = Modifier.padding(horizontal = 8.dp),
                 fontSize = 25.sp
             )
         }
@@ -92,7 +91,7 @@ fun PomScreen(
                 text = entity.text,
                 progress = entity.progress,
                 modifier = Modifier
-                    .padding(horizontal = Layout.largeMargin)
+                    .width(300.dp)
                     .aspectRatio(1f)
             )
         }
@@ -101,7 +100,7 @@ fun PomScreen(
             onResumeClicked = onStartClicked,
             onRestartClicked = onRestartClicked,
             onPauseClicked = onPauseClicked,
-            modifier = Modifier.size(50.dp)
+            modifier = Modifier.size(45.dp)
         )
         Spacer(modifier = Modifier.height(32.dp))
     }

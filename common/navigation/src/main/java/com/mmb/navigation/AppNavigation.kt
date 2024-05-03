@@ -1,9 +1,7 @@
 package com.mmb.navigation
 
 import androidx.compose.foundation.isSystemInDarkTheme
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.wrapContentSize
+import androidx.compose.foundation.layout.*
 import androidx.compose.material.Scaffold
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.PersonOutline
@@ -13,6 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
@@ -78,7 +77,12 @@ internal fun AppNavigation(
 
 private fun NavGraphBuilder.addClockScreen(navController: NavHostController) {
     composable(route = Screen.Clock.route) {
-        Column {
+        Column(
+            verticalArrangement = Arrangement.SpaceBetween,
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(vertical = 70.dp)
+        ) {
             val sessionViewModel = hiltViewModel<SessionViewModel>()
             val clockViewModel = hiltViewModel<PomodoroClockViewModel>()
             Clock(

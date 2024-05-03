@@ -6,8 +6,8 @@ data class TimerState(
 ) {
 
     companion object {
-        const val SECOND_MILLS = 100L
-        const val SECONDS_PER_MINUTE = 6000L
+        const val SECOND_MILLS = 1000L
+        const val SECONDS_PER_MINUTE = 60000L
     }
 
     fun convertToSeconds(): Long {
